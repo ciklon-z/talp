@@ -1,0 +1,332 @@
+%  ____                 ____   __  __
+% / ___| ___ _ __   __ |_   _|__\ \/ /
+%| |    / _ \ '_ \ / _` || |/ _ \\  / 
+%| |___ | __/ | | | (_| || |  __//  \ 
+% \____|\___|_| |_|\__,_||_|\___/_/\_\
+
+%-------------------------------------------------------------------%
+% Package fait pour mes besoins personnels.                         %
+%                                                                   %
+
+%* Options disponibles *********************************************%
+%   − all      : Toutes les commandes                               %
+%   − nolarge  : Toutes les commandes sauf large                    %
+%   − nowin    : Toutes les commandes sauf win                      %
+%   − large    : Change les marges                                  %
+%   − basic    : (par défaut) : commandes TRÈS SOUVENT utilisées    %
+%   − ecriture : Pour mes écrits personnels, recueils…              %
+%   − blinds   : Fournit des titres non numérotés mais tout de même %
+%                dans la table des matières.                        %
+%   − cours    : pour prendre en note des cours                     %
+%   − technic  : pour taper de la phonétique, citer un mot, inclure %
+%                des termes latins                                  %
+%   − win      : pour les (rares) cas où je compile avec MikTeX −   %
+%                sous Windows                                       %
+%   − acfr     : Commandes pour les cours d’ancien français         %
+%   − courstoc : Table des matière exhaustive (tocdepth = 5)        %
+%   − foreign  : Mots de nature étrangère ET emphases de mots       %
+
+%* large ***********************************************************%
+% * Importe le package geometry (Require)                           %
+%                                                                   %
+% Définit les marges telles que:                                    %
+%   − bottom : 2cm                                                  %
+%   − left   : 1,5cm                                                %
+%   − right  : 1,5cm                                                %
+
+%* courstoc ********************************************************%
+% * Définit le compteur tocdepth à 5. La table des matières est     %
+%   donc exhaustive.                                                %
+
+%* acfr ************************************************************%
+% * Importe le package xspace (usepackage)                          %
+%                                                                   %
+% \cass : Cas sujet                                                 %
+% \casr : Cas régime                                                %
+% \afr  : Ancien Français                                           %
+% \mfr  : Moyen Français                                            %
+% \fmod : Français Moderne                                          %
+
+%* basic ***********************************************************%
+% \qpass   : insère un […]                                          %
+% \noun    : formatage pour les noms propres                        %
+%            Pour les personnes, non les personnages                %
+% \bookn   : formatage pour un titre de livre                       %
+% \litcit  : insère une citation avec des espaces insécables        %
+% \poemcit : Citation hors bibliographie de poème.                  %
+%            \poemcit{Auteur}{Titre}{Livre}                         %
+
+%* cours ***********************************************************%
+% \probk     : insère une «problématique».                          %
+% \probkf    : insère une «problématique» avec une flèche droite.   %
+% \introsec  : insère un titre «Introduction» générique (section)   %
+% \concsec   : insère un titre «Conclusion» générique   (section)   %
+% \introsub  : insère un titre «Introduction» générique (s.section) %
+% \concsub   : insère un titre «Conclusion» générique   (s.section) %
+% \introsubs : insère un titre «Introduction» générique (s.s.sec)   %
+% \concsubs  : insère un titre «Conclusion» générique   (s.s.sec)   %
+% \defword   : Définition d’un mot.                                 %
+% \defwordal : Définition d’un mot en langue étrangère.             %
+% \expsec    : insère un titre Exposé                               %
+% \repsec    : insère un titre Reprise                              %
+% \parsec    : insère une partie d’exposé / reprise d’exposé        %
+
+%* blinds **********************************************************%
+% \bldsec    : insère une section non numérotée, mais sera pourtant %
+%              intégrée dans la table des matières                  %
+% \bldsub    : idem mais une sous-section                           % 
+% \bldsubs   : idem mais une sous-sous-section                      % 
+% \bldpart   : idem, mais une partie                                %
+% \bldchap   : idem, mais un chapitre                               %
+
+%* technic *********************************************************%
+% * Importe le package tipa (Require)                               %
+% * Importe le package xytree (Require)                             %
+% * Importe le package tikz (Require)                               %
+% * Importe le package subscript (Require)                          %
+% * Importe le package placeins (Require)                           %
+% * Importe le package graphicx (Require)                           %
+% * Importe le package slashbox (usepackage)                        %
+%                                                                   %
+% \latin     : Mot latin                                            %
+% \grec      : Mot grec                                             %
+% \anglais   : Mot anglais                                          %
+% \word      : Mot en tant que tel                                  %
+% \synta     : Syntagme                                             %
+% \oui       : Chose possible (test)                                %
+% \non       : Chose impossible (test)                              %
+% \Carrow    : Double flèche droite                                 %
+% \carrow    : Flèche droite                                        %
+% \sub       : Passe du texte en indice                             %
+% \treeConst : Element numeroté (arbre syntaxique) (Prototype)      %
+% \aP        : Phrase (arbre syntaxique)                            %
+% \aSn       : Syntagme nominal (arbre syntaxique)                  %
+% \aSv       : Syntagme verbal (arbre syntaxique)                   %
+% \aSa       : Syntagme adjectival (arbre syntaxique)               %
+
+%* ecriture ********************************************************%
+% \hulu      : «Arrivée de l’huluberlu»                             %
+% \rcsec     : «Section» de recueil.                                %
+%              \rcsec{Titre de la section}{Source de la section}    %
+% \mypigraph : Épigraphe                                            %
+%              \mypigraph{Texte}{Source}                            %
+% \asterism  : Astérisme                                            %
+
+%* win *************************************************************%
+% * Importe le package ifplatform (Require)                         %
+% * Importe le package times (usepackage) si le système est Windows %
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cenatex}[2012/13/11]
+
+\newif\if@all
+\newif\if@basic
+\newif\if@ecriture
+\newif\if@blinds
+\newif\if@cours
+\newif\if@technic
+\newif\if@win
+\newif\if@large
+\newif\if@nolarge
+\newif\if@nowin
+\newif\if@acfr
+\newif\if@courstoc
+\newif\if@foreign
+
+\@allfalse
+\@basictrue
+
+\@winfalse
+\@blindsfalse
+\@coursfalse
+\@technicfalse
+\@ecriturefalse
+\@largefalse
+\@nolargefalse
+\@nowinfalse
+\@acfrfalse
+\@courstocfalse
+\@foreignfalse
+
+\DeclareOption{all}{\@alltrue}
+\DeclareOption{ecriture}{\@ecrituretrue}
+\DeclareOption{blinds}{\@blindstrue}
+\DeclareOption{cours}{\@courstrue}
+\DeclareOption{technic}{\@technictrue}
+\DeclareOption{win}{\@wintrue}
+\DeclareOption{large}{\@largetrue}
+\DeclareOption{nolarge}{\@nolargetrue}
+\DeclareOption{nowin}{\@nowintrue}
+\DeclareOption{acfr}{\@acfrtrue}
+\DeclareOption{courstoc}{\@courstoctrue}
+\DeclareOption{foreign}{\@foreigntrue}
+
+\DeclareOption*{}
+\ProcessOptions
+
+\if@all
+  \@wintrue
+  \@courstrue
+  \@technictrue
+  \@ecrituretrue
+  \@blindstrue
+  \@largetrue
+  \@acfrtrue
+  \@foreigntrue
+\fi
+
+\if@nolarge
+  \@wintrue
+  \@courstrue
+  \@technictrue
+  \@ecrituretrue
+  \@blindstrue
+  \@acfrtrue
+  \@foreigntrue
+\fi
+
+\if@nowin
+  \@courstrue
+  \@technictrue
+  \@ecrituretrue
+  \@blindstrue
+  \@largetrue
+  \@acfrtrue
+  \@foreigntrue
+\fi
+
+\if@large
+  \usepackage[small,compact]{titlesec}
+  \usepackage[bottom=2cm,left=1.5cm, right=1.5cm]{geometry}
+\fi
+
+\if@acfr
+  \usepackage{xspace}
+  \newcommand{\cass}{cas sujet\xspace}
+  \newcommand{\casr}{cas régime\xspace}
+  \newcommand{\afr}{Ancien Français\xspace}
+  \newcommand{\acfr}{\afr}
+  \newcommand{\fmod}{Français Moderne\xspace}
+  \newcommand{\mfr}{Moyen Français\xspace}
+\fi
+
+\if@win
+  \RequirePackage{ifplatform}
+
+  \ifwindows \usepackage{times}
+\fi
+
+\if@cours
+  \@blindstrue
+
+  \newcommand{\probk}[1]{\par{\bf #1}\par}
+  \newcommand{\probkf}[1]{\par{$\Rightarrow$~\bf #1}\par}
+
+  \newcommand{\intropart}{\bldpart{Introduction}}
+  \newcommand{\concpart}{\bldpart{Conclusion}}
+  \newcommand{\introsec}{\bldsec{Introduction}}
+  \newcommand{\concsec}{\bldsec{Conclusion}}
+  \newcommand{\introsub}{\bldsub{Introduction}}
+  \newcommand{\concsub}{\bldsub{Conclusion}}
+  \newcommand{\introsubs}{\bldsubs{Introduction}}
+  \newcommand{\concsubs}{\bldsubs{Conclusion}}
+
+  \newcommand{\defword}[2]{{\bf #1} -- #2}
+  \newcommand{\defwordal}[2]{{\bf \textit{#1}} -- #2}
+
+  \newcommand{\expsec}{\section{Exposé}}
+  \newcommand{\repsec}{\section{Reprise}}
+
+  \newcommand{\partie}[2]{\part{#1}\par\input{#2}\par\newpage}
+\fi
+
+\if@blinds
+  \newcommand{\bldsec}[1]{\addcontentsline{toc}{section}{#1}\par\section*{#1}}
+  \newcommand{\bldsub}[1]{\addcontentsline{toc}{subsection}{#1}\par\subsection*{#1}}
+  \newcommand{\bldsubs}[1]{\addcontentsline{toc}{subsubsection}{#1}\par\subsubsection*{#1}}
+  \newcommand{\bldpart}[1]{\addcontentsline{toc}{part}{#1}\par\part*{#1}}
+  \newcommand{\bldchap}[1]{\addcontentsline{toc}{chapter}{#1}\par\chapter*{#1}}
+\fi
+
+\if@technic
+  \RequirePackage{tipa}
+  \RequirePackage{xytree}
+  \RequirePackage{tikz}
+  \RequirePackage{subscript}
+  \RequirePackage{placeins}
+  \RequirePackage{graphicx}
+
+  \newcommand{\word}[1]{\textit{#1}}
+
+  \newcommand{\synta}[1]{\word{#1}}
+
+  \newcommand{\oui}{~$\Rightarrow$~{\bf Possible}}
+  \newcommand{\non}{~$\Rightarrow$~{\bf Impossible}}
+
+  \newcommand{\Carrow}{~$\Rightarrow$~}
+  \newcommand{\carrow}{~$\rightarrow$~}
+
+  \newcommand{\sub}[1]{\textsubscript{#1}}
+  \newcommand{\treeConst}[2]{#1\up{#2}}
+  \newcommand{\aP}[1]{\treeConst{P}{#1}}
+  \newcommand{\aSn}[1]{\treeConst{Sn}{#1}}
+  \newcommand{\aSv}[1]{\treeConst{Sv}{#1}}
+  \newcommand{\aSa}[1]{\treeConst{Sa}{#1}}
+\fi
+
+\if@foreign
+  \newcommand{\latin}[1]{\textit{#1}}
+  \newcommand{\anglais}[1]{\textit{#1}}
+  \newcommand{\grec}[1]{\textit{#1}}
+  \newcommand{\graphie}[1]{\textit{#1}}
+\fi
+
+\if@ecriture
+  \usepackage{cclicenses}
+
+  \newcommand{\hulu}[1]{\textsc{#1}}
+  \newcommand{\rcsec}[2]{\part{#1}\par\input{#2}}
+
+  \newcommand{\mypigraph}[2]{\begin{flushright}{\textit #1}\par\vspace{0.5em}#2\end{flushright}}
+
+  \newcommand{\asterism}{\smash{% 
+      \raisebox{-.5ex}{% 
+	\setlength{\tabcolsep}{-.5pt}% 
+	\begin{tabular}{@{}cc@{}}% 
+	  \multicolumn2c*\\[-2ex]*&*% 
+	\end{tabular}}}}
+\fi
+
+\if@courstoc
+  \setcounter{tocdepth}{5}
+  \newcommand{\cleartitle}{\maketitle\par\tableofcontents\par\newpage}
+\fi
+
+\if@basic
+  \usepackage[colorlinks=true,urlcolor=black]{hyperref}
+  \usepackage{xspace}
+  \hypersetup{
+       colorlinks=true,
+       breaklinks=true,
+       urlcolor=black,
+       linkcolor=black,
+       bookmarks=true
+    }
+
+  \newcommand{\qpass}{[\ldots]~}
+
+  \newcommand{\noun}[1]{\textsc{#1}}
+  \newcommand{\bookn}[1]{\emph{#1}}
+  \newcommand{\litcit}[1]{«~#1~»}
+  \newcommand{\poemcit}[3]{\noun{#1}, \litcit{#2} in \bookn{#3}}
+
+  \newcommand{\nota}{\par{\bf NB:~}}
+  \newcommand{\nb}{\nota}
+  \newcommand{\cf}{\emph{Cf.}\xspace}
+
+  \newcommand{\myemph}{\footnote{La mise en valeur est de moi}}
+
+  \bibliographystyle{plain-fr}
+\fi
+
+\endinput

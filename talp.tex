@@ -1,0 +1,261 @@
+%=============================================================================
+%== Préambule ================================================================
+%=============================================================================
+\documentclass{memoir}
+\renewcommand{\poemtoc}{subsection}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage[all]{cenatex}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{\emph{Trois ans de libre poésie}}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Etienne Nadji}
+\fancyfoot[CO,RE]{\today}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+
+\lstset{language=Python,basicstyle=\small,captionpos=b,breaklines=true,identifierstyle=\ttfamily}
+
+\newcommand{\secec}[2]{\addcontentsline{toc}{part}{#1}\par\part*{#1}\par\input{#2}}
+\newcommand{\subc}[2]{\addcontentsline{toc}{section}{#1}\par\section*{#1}\par\input{#2}}
+
+%=============================================================================
+%=============================================================================
+%=============================================================================
+\begin{document}
+\input{titlepage}
+
+\input{cczero}
+\vspace{5ex}
+\input{support}
+
+\newpage
+\renewcommand*{\contentsname}{Sommaire}
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+%=============================================================================
+%=============================================================================
+%=============================================================================
+
+%--- TERMINUS LUNE VERTE ------------------------------------------------------
+
+  \secec{I -- Terminus Lune Verte}{termlv/termluneverte}
+  \newpage
+
+%--- LE 36ÈME CARACTÉRIEL -----------------------------------------------------
+
+  \part*{II -- Le 36ème caractériel}
+  \addcontentsline{toc}{part}{II -- Le 36\ieme caractériel}
+
+  \begin{flushright}
+    \textit{À la communauté francophone de Diaspora}\textbf{*}
+  \end{flushright}
+
+  \subc{Kernel Panic}{36c/kernelpanic}
+  \newpage
+  \subc{Corridor 36}{36c/corridor36}
+  \newpage
+  \subc{Dissolvant}{36c/dissolvant}
+  \newpage
+  \subc{RW}{36c/rw}
+  \newpage
+
+%--- LES ILLOGIQUES ORDINAIRES ------------------------------------------------
+
+  \part*{III -- Les illogiques ordinaires}
+  \addcontentsline{toc}{part}{III -- Les illogiques ordinaires}
+
+  \subc{Billocation}{illordinaires/billocation}
+  \newpage
+  \subc{Exaspération}{illordinaires/exasperation}
+  \newpage
+  \subc{Dislocation}{illordinaires/dislocation}
+  \newpage
+
+%--- DISSECTION D’UN CRABE ----------------------------------------------------
+
+  \part*{IV -- Dissection d’un crabe}
+  \addcontentsline{toc}{part}{IV -- Dissection d’un crabe}
+
+  \begin{flushright}
+    \textit{
+      Le crabe poète\\
+      dédie ces petites choses\\
+      à tous les nénuphars de la planète.
+    }
+  \end{flushright}
+
+  \begin{flushright}
+     Que pour chacun, la table soit servie\\
+     Le ventre plein, l’homme peut discuter
+
+    \textsc{Charles d’Avray}
+  \end{flushright}
+
+  \subc{Amont}{dissection/amont}
+  \newpage
+  \subc{En Pince}{dissection/enpince}
+  \newpage
+  \subc{Aval}{dissection/aval}
+  \newpage
+
+%--- FRANCHE MADNÈSSE ---------------------------------------------------------
+
+  \part*{V -- Franche Madnèsse}
+  \addcontentsline{toc}{part}{V -- Franche Madnèsse}
+
+  \subc{Franche Madnèsse}{franchemadnesse/franchemadnessesec}
+    \newpage
+  \subc{Indécrottable}{franchemadnesse/indecrottable}
+    \newpage
+  \subc{Le cul tendu des électeurs}{franchemadnesse/electeurs}
+    \newpage
+  \subc{Bocaux à serpents}{franchemadnesse/bocaux}
+    \newpage
+  \subc{Caféine -- Ô Man!}{franchemadnesse/cafeineoman}
+    \newpage
+
+%--- ANNEXES ------------------------------------------------------------------
+
+  \part*{VI -- Préludes à rien du tout}
+  \addcontentsline{toc}{part}{VI -- Préludes à rien du tout}
+
+  \begin{flushright}
+    L’andromielle m’étonne et son parfum m’haipave,\\
+    Ravive l’essentone et l’ulve des épaves.\\
+    L’unative est perdue dans l’abstrincte céleste\\
+    Car Peinébor a bu l’eau du puits perpanteste.
+
+    \poemcit{Jost Vincent}{Abstraction}{Semblables}
+  \end{flushright}
+
+  \section*{Ouverture}
+  \addcontentsline{toc}{section}{Ouverture}
+
+    \PoemTitle{Non pas dire mais faire (4 Février 2012)}
+      \begin{verse}
+	On ne nait pas pour avoir des cendres dans le sang\\
+	(ni pour se proclamer crevure du fond des limbes,\\
+	c’est vrai -- mais qu’importe la poésie!)
+      \end{verse}
+      \begin{verse}
+	Moi qui sais m’étonner de n’importe quoi,\\
+	d’une pâquerette à NénuPhare\\
+	et des pyramides aux égouts chrétiens…
+      \end{verse}
+      \begin{verse}
+	que d’œillères ça et là\\
+	-- et que de beauté, en toute chose!
+      \end{verse}
+
+  \subc{Masques}{preludesariendutout/masques}
+  \subc{Horizons}{preludesariendutout/horizons}
+  \subc{Bavardages}{preludesariendutout/bavardages}
+  \subc{Avant les prochains jours sombres}{preludesariendutout/joursombres}
+  \subc{human TLD}{preludesariendutout/hmntld}
+
+%--- STATION AILLEURS ---------------------------------------------------------
+
+  \part*{VII -- Station \textsc{Ailleurs}}
+  \addcontentsline{toc}{part}{VII -- Station Ailleurs}
+
+  \begin{flushright}
+    Voici la poésie ce matin et pour la prose il y a les journaux
+
+    \poemcit{Apollinaire}{Zone}{Alcools}
+  \end{flushright}
+
+  \section*{Ouverture}
+  \addcontentsline{toc}{section}{Ouverture}
+  \input{stationailleurs/ouverture}
+
+  \subc{Le balais à cauquemares}{stationailleurs/cauquemares}
+  \subc{Aphorismes}{stationailleurs/aphorismes}
+  \subc{Maison de fous}{stationailleurs/maisondefous}
+  \subc{Les bottes de Mai}{stationailleurs/bottes}
+
+%--- LA PERPENDICULAIRE CABOTINE ----------------------------------------------
+
+  \part*{VIII -- La perpendiculaire cabotine}
+  \addcontentsline{toc}{part}{VIII -- La perpendiculaire cabotine}
+
+  \begin{flushright}
+    Il était comme un trône sur son con.
+
+    \textsc{Un rôliste}, 10 Juin 2012 -- Geek Faeries
+  \end{flushright}
+
+  \subc{Histoire-Géographie}{perpcabotine/histgeo}
+  \subc{Éveil}{perpcabotine/eveil}
+  \subc{Mathématiques}{perpcabotine/maths}
+  \subc{Français}{perpcabotine/frs}
+  \subc{Re-création}{perpcabotine/recreation}
+
+%--- 600 ROTULES --------------------------------------------------------------
+  \part*{IX -- 600 rotules}
+  \addcontentsline{toc}{part}{IX -- 600 rotules}
+
+  \subc{Mots en vadrouille}{600r/vadrouille}
+  \subc{Neuf tours de piste}{600r/piste}
+  \subc{D’ici à la nuit}{600r/icinuit}
+
+
+%--- EMERGE -------------------------------------------------------------------
+  \part*{X -- Emerge}
+  \addcontentsline{toc}{part}{X -- Emerge}
+
+  \subc{Mort aux Finalités}{emerge/finalites}
+  \subc{L’esprit de Forum}{emerge/forum}
+  \subc{L’ennui des Fins}{emerge/fins}
+  \subc{Dans l’exorcisme de ses Fonctions}{emerge/fonctions}
+
+%--- PIPES EN FEU -------------------------------------------------------------
+  \part*{XI -- Pipes en feu}
+  \addcontentsline{toc}{part}{XI -- Pipes en feu}
+
+  \begin{flushright}
+    \textit{À \textsc{Derlate}, habituée des ténèbres.}
+  \end{flushright}
+  \begin{flushright}
+    Et chil se pueent fox clamer\\
+    Qui quident c’on les veulle amer,\\
+    Quant une dame est si courtoise\\
+    C’a un male\"ureus adoise,\\
+    Si li fait joie et si l’acole.\\
+    Faux est liés de bele parole,\\
+    Si l’a l’en mout tost amusé.
+
+    \textsc{Chrétien de Troyes}, \emph{Le chevalier au lion}
+  \end{flushright}
+
+  \subc{<LEFT>}{pef/left}
+  \newpage
+  \subc{Feu Aux Pipes}{pef/fap}
+
+  \subc{IO}{pef/io}
+
+  \subc{20h Climat}{pef/20h}
+  \subc{Trolls}{pef/trolls}
+  \subc{Aléas}{pef/aleas}
+
+%--- ANNEXES ------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+
+%=============================================================================
+%=============================================================================
+%=============================================================================
+\end{document}
